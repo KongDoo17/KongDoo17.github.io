@@ -81,6 +81,7 @@ function init() {
 
             divbox.style.marginRight = "20px";
             button.style.right = "30px";
+            button.style.backgroundColor = "lightgray";
 
 
             if (str[i] != "") {
