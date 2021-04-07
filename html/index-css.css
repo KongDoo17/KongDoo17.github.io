@@ -4,6 +4,8 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 980px;
     color: black;
+    min-width : 720px;
+    min-height : 800px;
 }
 
 #js-weather {
@@ -73,6 +75,7 @@ input:focus {
 #back2 {
     width: 100%;
     background-color: black;
+    min-height : 980px;
     height: 100%;
     position: absolute;
     top: 0;
@@ -96,7 +99,7 @@ input:focus {
 
 #left {
     position: absolute;
-    top: 800px;
+    top: 80%;
     z-index: 100;
     left: 5%;
     font-size: 60px;
@@ -106,7 +109,7 @@ input:focus {
 
 #right {
     position: absolute;
-    top: 800px;
+    top: 80%;
     z-index: 100;
     left: 90%;
     font-size: 60px;
