@@ -283,7 +283,7 @@ function getWeather(lat, lon) {
         const place = json.city.name;
         const curwea = json.list[0].weather[0].main;
 
-        weather.innerHTML = "현재 기온 : " + temperature + "℃   <br>지역 : " + place + "<br>날씨 : " + curwea;
+        weather.innerHTML = "현재 기온 : " + temperature + "℃<br>지역 : " + place + "<br>날씨 : " + curwea;
         weather.innerHTML += "<img src = 'http://openweathermap.org/img/w/" + json.list[0].weather[0].icon + ".png' id = 'image2'>";
     });
 }
