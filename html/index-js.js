@@ -2,14 +2,14 @@ window.onload = function () {
 
     var radionum = localStorage.getItem("RadioNumber");
 
-    if (radionum == "1") {
+    if (radionum == "1" || radionum == null) {
         SelectBackground(1);
     } else if (radionum == "2") {
         SelectBackground(2);
     }
 
     init();
-    
+
     time();
 
     setInterval("time()", 1000);
@@ -131,67 +131,8 @@ function Enter_Check() {
     }
 }
 
-function todolist() {
-    var todolist = document.getElementById("todolist");
-    var todo = document.getElementById("todo");
-
-    if (localStorage.getItem("todolist") == null) {
-        var list = "";
-    } else {
-        var list = localStorage.getItem("todolist");
-    }
-
-    list += document.getElementById("todo").value + ",";
-    localStorage.setItem("todolist", list);
-
-    if (list != null) {
-        var str = list.split(',');
-
-        if (todolist != null) {
-            while (todolist.hasChildNodes()) {
-                todolist.removeChild(todolist.firstChild);
-            }
-        }
-
-        for (var i = str.length - 1; i >= 0; i--) {
-            var button = document.createElement('button');
-            var divbox = document.createElement('div');
-            var box = document.createElement('div');
-
-            button.id = "button_" + i;
-            divbox.id = "div_" + i;
-            box.id = "box_" + i;
-
-            button.setAttribute("onclick", "remove(this.id)");
-
-            divbox.innerHTML = str[i];
-            button.innerHTML = "삭제";
-
-            divbox.style.display = "inline-block";
-            button.style.display = "inline-block";
-
-            box.style.borderRadius = "30px";
-            box.style.height = "50px";
-            box.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-            box.style.lineHeight = "50px";
-            box.style.marginBottom = "20px";
-
-            divbox.style.marginRight = "20px";
-            button.style.right = "30px";
-
-
-            if (str[i] != "") {
-                box.appendChild(divbox);
-                box.appendChild(button);
-                todolist.appendChild(box);
-            }
-        }
-    }
-    todo.value = "";
-}
-
-function todolist2() {
-    if (event.keyCode == 13) {
+function todolist(id) {
+    if (id == "submit" || event.keyCode == 13) {
         var todolist = document.getElementById("todolist");
         var todo = document.getElementById("todo");
 
@@ -247,8 +188,8 @@ function todolist2() {
                 }
             }
         }
-        todo.value = "";
     }
+    todo.value = "";
 }
 
 function remove(clicked_id) {

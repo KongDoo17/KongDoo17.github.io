@@ -25,14 +25,23 @@
     </div>
     <div id="total">
         <div id="radiobox">
-            <input type="radio" name="backgroup" value="1" onclick="SelectBackground(this.value)">1번 배경(랜덤)
+            <input type="radio" name="backgroup" value="1" onclick="SelectBackground(this.value)">1번 배경(랜덤), Default
             <input type="radio" name="backgroup" value="2" onclick="SelectBackground(this.value)">2번 배경(배경넘김)
         </div>
         <span id="now"></span>
-        <input type="text" value="What is your name?" onclick="Clear(this.id)" id="setname" onkeydown="JavaScript:Enter_Check();">
+        <input type="text" value="What is your name?" onclick="Clear(this.id)" id="setname" onkeydown="
+        JavaScript:Enter_Check();">
         <h3 id="pc"></h3>
-        <input type="text" id="todo" value="Write a to do" onclick="Clear(this.id)" onkeydown="JavaScript:todolist2()">
-        <input type="button" value="✔OK" id="submit" onclick="todolist()">
+        
+        <input type="text" id="todo" value="Write a to do" onclick="Clear(this.id)" onkeydown="JavaScript:todolist()">
+        <input type="button" value="✔OK" id="submit" onclick="todolist(this.id)">
+        
+        
+        <!--<form name = "write_todo">
+           <input type="text" id="todo" value="Write a to do" onclick="Clear(this.id)">
+           <input type="submit" value="✔OK" id="submit" onclick="todolist()">
+        </form>-->
+        
         <input type="button" value="초기화" id="default" onclick="button_default()">
         <div id="todolist"></div>
     </div>
