@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>현재시간</title>
+</head>
+
+<link rel="stylesheet" href="index-css.css" type="text/css">
+<script type="text/javascript" src="index-js.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="index-jq.js"></script>
+
+<body>
+    <div id="leftbox"><i class="far fa-caret-square-left" id="left"></i></div>
+    <div id="rightbox"><i class="far fa-caret-square-right" id="right"></i></div>
+    <div id="back2">
+        <div id="back2-1">
+            <img src="spring.jpg" class="backimage">
+            <img src="summer.jpg" class="backimage">
+            <img src="fall.jpg" class="backimage">
+            <img src="winter.jpg" class="backimage">
+            <img src="sky.jpg" class="backimage">
+        </div>
+    </div>
+    <div id="total">
+        <div id="radiobox">
+            <input type="radio" name="backgroup" value="1" onclick="SelectBackground(this.value)">1번 배경(랜덤)
+            <input type="radio" name="backgroup" value="2" onclick="SelectBackground(this.value)">2번 배경(배경넘김)
+        </div>
+        <span id="now"></span>
+        <input type="text" value="What is your name?" onclick="Clear(this.id)" id="setname" onkeydown="JavaScript:Enter_Check();">
+        <h3 id="pc"></h3>
+        <input type="text" id="todo" value="Write a to do" onclick="Clear(this.id)" onkeydown="JavaScript:todolist2()">
+        <input type="button" value="✔OK" id="submit" onclick="todolist()">
+        <input type="button" value="초기화" id="default" onclick="button_default()">
+        <div id="todolist"></div>
+    </div>
+    <span id="js-weather"></span>
+</body></html>
