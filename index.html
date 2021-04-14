@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>현재시간</title>
+</head>
+
+<link rel="stylesheet" href="index-css.css" type="text/css">
+
+<body>
+    <div id="wrap" :style="backImg">
+        <div id="leftbox" :style="radio_display"><i class="far fa-caret-square-left" id="left"></i></div>
+        <div id="rightbox" :style="radio_display"><i class="far fa-caret-square-right" id="right"></i></div>
+        <div id="back2" :style="radio_display">
+            <div id="back2-1">
+                <img src="spring.jpg" class="backimage">
+                <img src="summer.jpg" class="backimage">
+                <img src="fall.jpg" class="backimage">
+                <img src="winter.jpg" class="backimage">
+                <img src="sky.jpg" class="backimage">
+            </div>
+        </div>
+        <div id="total">
+            <div id="radiobox">
+                <!-- <input type="radio" name="backgroup" value="1" onclick="SelectBackground(this.value)" v-bind:checked = "check_radio1">1번 배경(랜덤), Default
+                <input type="radio" name="backgroup" value="2" onclick="SelectBackground(this.value)">2번 배경(배경넘김) -->
+                <input type="radio" name="backgroup" value="1" @click="SelectBackground(1)"
+                    v-bind:checked="check_radio1">1번 배경(랜덤), Default
+                <input type="radio" name="backgroup" value="2" @click="SelectBackground(2)"
+                    v-bind:checked="check_radio2">2번 배경(배경넘김)
+            </div>
+            <span id="now">{{ curtime }}</span>
+            <input type="text" :style="setName_style" v-model="setName" @click="Clear_setName" id="setname"
+                @keydown.enter="Enter_Check">
+            <h3 id="pc">{{ current }}</h3>
+
+            <!-- <input type="text" id="todo" v-model = "todo" @click="Clear_todo()" keydown="JavaScript:todolist()">
+            <input type="button" value="✔OK" id="submit" onclick="todolist(this.id)"> -->
+
+
+            <form @submit.prevent="set_todolist">
+                <input type="text" id="todo" v-model = "todo" @click="Clear_todo">
+                <input type="submit" value="✔OK" id="submit">
+                <input type="button" value="초기화" id="default" @click="default_button">
+            </form>
+
+            <div id="todolist"></div>
+        </div>
+        <span id="js-weather">
+            현재 기온 : {{ temperature }} ℃ <br>
+            지역 : {{ place }} <br>
+            날씨 : {{ weather }} <img :src="weather_icon_url" id="image2">
+        </span>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="index-vue.js"></script>
+    <script type="text/javascript" src="index-jq.js"></script>
+</body>
+
+</html>
