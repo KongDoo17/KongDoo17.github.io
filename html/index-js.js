@@ -27,7 +27,7 @@ function SelectBackground(value) {
         BackImg[4] = "sky.jpg";
 
         var num = Math.round(Math.random() * 4);
-        document.body.style.backgroundImage = "url('" + BackImg[num] + "')";
+        document.getElementById("wrap").style.backgroundImage = "url('" + BackImg[num] + "')";
         localStorage.setItem("RadioNumber", "1");
         backs[0].checked = true;
         document.getElementById("back2").style.display = "none";
