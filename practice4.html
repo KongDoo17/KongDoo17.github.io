@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='it_list'>
+        <it-component v-bind:its="its">
+        </it-component>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.component('it-component', {
+            props: ['its'],
+            template: '<ul><li>{{its.a}}</li><li>{{its.b}}</li><li>{{its.c}}</li></ul>'
+        });
+
+        new Vue({
+            el: '#it_list',
+            data: {
+                its: {
+                    a: "mine",
+                    b: "it",
+                    c: "record"
+                }
+            },
+            methods: {
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <input :type="type" :value="inputData">
+
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                inputData: 'hello',
+                type:'number'
+            }
+        })
+
+    </script>
+</body>
+
+</html>

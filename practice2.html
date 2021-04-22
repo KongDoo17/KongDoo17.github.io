@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id = "app">
+    <new-component></new-component>
+    <new-component></new-component>
+    <new-component></new-component>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    Vue.component("new-component", {
+      template : `
+      <div>
+        <input type = "text" v-model = "color">
+        <a :style = "{color:color}">현재 색깔은 {{color}} 입니다.</a>
+      </div>
+      `,
+      data() {
+        return {
+          color : 'red',
+        }
+      },
+      methods : {
+        Change(color) {
+          this.color = color;
+        }
+      }
+    });
+
+    var app = new Vue({
+      el : "#app",
+
+    });
+  </script>
+</body>
+</html>

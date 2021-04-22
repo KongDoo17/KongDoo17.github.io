@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <button @click="ChangeMessage">click</button>
+        {{reversedMessage}}
+        {{reversedMessage}}
+        {{reversedMessage}}
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '안녕하세요'
+            },
+            methods: {
+                ChangeMessage() {
+                    this.message = '반갑습니다';
+                }
+            },
+            computed: {
+                reversedMessage() {
+                    return this.message.split('').reverse().join('');
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

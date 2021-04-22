@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <button @click="ChangeMessage">click</button>
+        {{update}}
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '안녕하세요',
+                update:'아니요'
+            },
+            methods: {
+                ChangeMessage() {
+                    this.message = '반갑습니다';
+                }
+            },
+            watch: {
+                message(newVal, oldVal) {
+                    console.log(newVal, oldVal);
+                    this.update = '네';
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

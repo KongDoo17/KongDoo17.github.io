@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TEST!!</title>
+  </head>
+  <body>
+    <div id="app">
+      <div :style="{color:color}">글씨가 현재 {{computedKoreanColorName}}입니다.</div>
+      <div v-for="(color, index) in colors" @mouseover="changeFontColor(color)">
+        여기에 마우스를 올리면 글씨가 {{colorsKorean[index]}}이 됩니다.
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          colors: ['red', 'blue', 'green'],
+          colorsKorean: ['빨간색', '파란색', '초록색'],
+          color: 'red',
+        },
+        methods: {
+          changeFontColor(color) {
+            this.color = color;
+          },
+        },
+        computed: {
+          computedKoreanColorName() {
+            return this.colorsKorean[this.colors.indexOf(this.color)];
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

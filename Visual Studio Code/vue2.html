@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>person : {{person}} </p>
+        <p>person.name : {{person.name}} </p>
+        <p>person.age : {{person.age}} </p>
+        <p>greeting : {{nextYear('안녕하세요')}} </p>
+        <p>other : {{otherMethod()}} </p>
+
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                person: {
+                    name: '수영',
+                    age: 26
+                }
+
+            },
+            methods: {
+                nextYear(greeting) {
+                    return greeting + '!' + this.person.name + '은 내년에 ' + (this.person.age + 1) + '살 입니다.';
+                },
+                otherMethod(){
+                    return this.nextYear();
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

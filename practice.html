@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id = "app">
+    <input type = "text" v-model = "inputcolor">
+    <a :style = "{color : setcolor}">현재 색깔은 {{setcolor}} 입니다.</a>
+    <button @click="func">Change</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el : "#app",
+      data : {
+        count : 0,
+        inputcolor : '',
+        setcolor : '',
+      },
+      methods : {
+        func() {
+          this.setcolor = this.inputcolor;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

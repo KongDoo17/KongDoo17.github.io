@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app1">
+
+<!--
+        {{name}}
+        <button @click="changeTxt">click</button>
+        
+        <hr>
+-->
+        <btn></btn>
+    </div>
+<hr><hr>
+
+    <div id="app2">
+<!--
+
+        {{name}}
+        <button @click="changeTxt">click</button>
+        
+-->
+        <hr>
+        <btn></btn>
+    </div>
+
+
+    <script>
+        Vue.component('hello',{
+            template: '<div>hello world</div>'
+        });
+//        Vue.component('btn',{
+//            template: `
+//                <div>
+//                    <hello></hello><br>{{name}}<button @click="changeTxt">click</button>
+//                </div>
+//            `,
+//            data() {
+//                return{
+//                    name: 'ㅋㅋ'
+//                    }
+//            },
+//            methods: {
+//                changeTxt() {
+//                    this.name = 'ㅎㅎ';
+//                }
+//            }
+//        });
+        
+        const sybtn = {
+             template: `
+                <div>
+                    <hello></hello><br>{{name}}<button @click="changeTxt">click</button>
+                </div>
+            `,
+            data() {
+                return{
+                    name: 'ㅋㅋ'
+                    }
+            },
+            methods: {
+                changeTxt() {
+                    this.name = 'ㅎㅎ';
+                }
+            }
+        };
+                    
+        
+       var app1= new Vue({
+            el: '#app1',
+           components:{
+               'btn': sybtn
+           }
+//            data: {
+//                name: '하이1'
+//            },
+//            methods: {
+//                changeTxt() {
+//                    app2.name = '방가1';
+//                }
+//            },
+
+        })
+
+        var app2 = new Vue({
+          el: '#app2',
+                       components:{
+               'btn': sybtn
+           }
+//            data: {
+//                name: '하이2'
+//            },
+//            methods: {
+//                changeTxt() {
+//                    app1.name = '방가2';
+//                }
+//            },
+//
+       })
+
+    </script>
+</body>
+
+</html>

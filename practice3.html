@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='it_list'>
+        <button v-on:click='add()'>목록 추가</button>
+        <ul>
+            <it-component v-for="(it, index) in its">
+                {{ index }}
+            </it-component>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(it, alsdc) in its">
+                {{alsdc}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    Vue.component('it-component',{
+        template: '<li @click="mine()" >it list</li>'
+        ,methods:{
+            mine : function(){
+                console.log("record");
+            }
+        }
+    });
+ 
+    new Vue({
+        el: '#it_list',
+        data: {
+            its : []
+        },
+        methods: {
+            add : function(){
+                this.its.push('fvkopefviefv');
+            }
+        }
+    });
+    </script>
+</body>
+</html>

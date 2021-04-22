@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TEST!!</title>
+  </head>
+  <body>
+    <div id="app">
+      <colorbutton color="red" @increase-count="increaseTotalCount"></colorbutton>
+      <colorbutton color="blue" @increase-count="increaseTotalCount"></colorbutton>
+      <colorbutton color="green" @increase-count="increaseTotalCount"></colorbutton>
+      <div>전체 버튼을 누른 횟수 : {{totalCount}}</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      // 앞에 선언해야 함
+      Vue.component('colorbutton', {
+        props: {
+          color: {
+            type: String,
+            required: true,
+            default: 'red',
+          },
+        },
+        template: `<div>
+                    <button @click="increaseCount" :style="{color:color}">{{color}}</button>
+                    <span>{{color}}버튼을 누른 횟수 : {{count}}</span>
+                  </div>`,
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          increaseCount() {
+            this.count += 1;
+            this.$emit('increase-count');
+          },
+        },
+      });
+
+      var app = new Vue({
+        el: '#app',
+        data: {
+          totalCount: 0,
+        },
+        methods: {
+          increaseTotalCount() {
+            this.totalCount += 1;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
